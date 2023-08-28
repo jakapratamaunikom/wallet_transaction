@@ -2,27 +2,27 @@
 
 <div class="card">
   <div class="card-header">
-    <h1>Withdraw Detail</h1>
+    <h1>Topup Detail</h1>
   </div>
   <div class="card-body">
 
     <p>
       <strong>Amount:</strong>
-      <%= @withdraw.amount %>
+      <%= @topup.amount %>
     </p>
 
     <p>
       <strong>Sender:</strong>
-      <%= @withdraw.stock.code %>
+      <%= @topup.stock.code %>
     </p>
 
     <p>
       <strong>Receiver:</strong>
-      <%= "#{@withdraw.account.number} - #{@withdraw.account.customer.full_name}" %>
+      <%= "#{@topup.account.number} - #{@topup.account.customer.full_name}" %>
     </p>
 
     <div>
-      <span><%= link_to "Back", withdraws_path, class: 'btn btn-outline-primary btn-sm' %></span>
+      <span><%= link_to "Back", topups_path, class: 'btn btn-outline-primary btn-sm' %></span>
     </div>
   </div>
 </div>

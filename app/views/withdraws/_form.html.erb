@@ -1,0 +1,33 @@
+<%= form_with(model: withdraw) do |form| %>
+  <% if withdraw.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(withdraw.errors.count, "error") %> prohibited this withdraw from being saved:</h2>
+
+      <ul>
+        <% withdraw.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-4 form-group mb-3">
+    <%= form.label :amount, style: "display: block" %>
+    <%= form.text_field :amount, class: 'form-control' %>
+  </div>
+
+  <div class="col-4 form-group mb-4">
+    <%= form.label :sender_id, style: "display: block" %>
+    <%= form.select :sender_id, Account.pluck(:number, :id), {}, { class: "form form-group form-select" } %>
+  </div>
+
+  <div class="col-4 form-group mb-4">
+    <%= form.label :receiver_id, style: "display: block" %>
+    <%= form.select :receiver_id, Stock.withdraw.pluck(:code, :id), {}, { class: "form form-group form-select" } %>
+  </div>
+
+  <div>
+    <%= link_to "Back", withdraws_path, class: 'btn btn-outline-primary btn-sm' %>
+    <%= form.submit 'Save', class: 'btn btn-primary btn-sm' %>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="card">
+  <div class="card-header">
+    <h1>Customer Detail</h1>
+  </div>
+  <div class="card-body">
+    <p>
+      <strong>Username:</strong>
+      <%= @customer.username %>
+    </p>
+
+    <p>
+      <strong>Full name:</strong>
+      <%= @customer.full_name %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @customer.email %>
+    </p>
+
+    <p>
+      <strong>Born date:</strong>
+      <%= @customer.born_date %>
+    </p>
+
+    <div>
+      <span><%= link_to "Edit", edit_customer_path(@customer), class: 'btn btn-primary btn-sm' %></span>
+      <span><%= link_to "Back", customers_path, class: 'btn btn-outline-primary btn-sm' %></span>
+    </div>
+  </div>
+</div>

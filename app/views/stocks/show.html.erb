@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="card">
+  <div class="card-header">
+    <h1>Stock Detail</h1>
+  </div>
+  <div class="card-body">
+    <p>
+      <strong>Name:</strong>
+      <%= @stock.name %>
+    </p>
+
+    <p>
+      <strong>Code:</strong>
+      <%= @stock.code %>
+    </p>
+
+    <p>
+      <strong>Type:</strong>
+      <%= @stock.stock_type %>
+    </p>
+
+    <p>
+      <strong>Balance:</strong>
+      <%= @stock.balance %>
+    </p>
+
+    <div>
+      <span><%= link_to "Back", stocks_path, class: 'btn btn-outline-primary btn-sm' %></span>
+      <span><%= link_to "Edit", edit_stock_path(@stock), class: 'btn btn-primary btn-sm' %></span>
+    </div>
+  </div>
+</div>

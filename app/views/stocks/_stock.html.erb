@@ -1,0 +1,27 @@
+<hr>
+<table class="table">
+  <thead>
+    <tr class="text-center">
+      <th scope="col">No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Code</th>
+      <th scope="col">Type</th>
+      <th scope="col">Balance</th>
+      <th scope="col", colspan="5">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @stocks.each_with_index do |stock, index| %>
+    <tr class="text-center">
+      <th scope="row"><%= index + 1 %></th>
+      <td><%= stock.name %></td>
+      <td><%= stock.code %></td>
+      <td><%= stock.stock_type %></td>
+      <td><%= format_rupiah(stock.balance) %></td>
+      <td colspan="1"><%= link_to "Show", stock, class: 'btn btn-secondary btn-sm' %><td>
+      <td colspan="1"><%= link_to "Edit", edit_stock_path(stock), class: 'btn btn-primary btn-sm' %><td>
+      <td colspan="1"><%= button_to "Delete", stock, method: :delete, class: 'btn btn-danger btn-sm' %><td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

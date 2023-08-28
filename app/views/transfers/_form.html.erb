@@ -1,0 +1,33 @@
+<%= form_with(model: transfer) do |form| %>
+  <% if transfer.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(transfer.errors.count, "error") %> prohibited this transfer from being saved:</h2>
+
+      <ul>
+        <% transfer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-4 form-group mb-3">
+    <%= form.label :amount, style: "display: block" %>
+    <%= form.text_field :amount, class: 'form-control' %>
+  </div>
+
+  <div class="col-4 form-group mb-3">
+    <%= form.label :sender_id, style: "display: block" %>
+    <%= form.select :sender_id, Account.pluck(:number, :id), {}, { class: "form form-group form-select" } %>
+  </div>
+
+  <div class="col-4 form-group mb-3">
+    <%= form.label :receiver_id, style: "display: block" %>
+    <%= form.select :receiver_id, Account.pluck(:number, :id), {}, { class: "form form-group form-select" } %>
+  </div>
+
+  <div>
+    <%= link_to "Back", transfers_path, class: 'btn btn-outline-primary btn-sm' %>
+    <%= form.submit 'Save', class: 'btn btn-primary btn-sm' %>
+  </div>
+<% end %>

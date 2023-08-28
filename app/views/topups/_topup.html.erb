@@ -1,0 +1,23 @@
+<hr>
+<table class="table">
+  <thead>
+    <tr class="text-center">
+      <th scope="col">No</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Sender</th>
+      <th scope="col">Receiver</th>
+      <th scope="col" colspan="6">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @topups.each_with_index do |topup, index| %>
+    <tr class="text-center">
+      <th scope="row"><%= index + 1 %></th>
+      <td><%= format_rupiah(topup.amount) %></td>
+      <td><%= topup.stock.code %></td>
+      <td><%= "#{topup.account.number} - #{topup.account.customer.full_name}" %></td>
+      <td colspan="6"><%= link_to "Show", topup, class: 'btn btn-secondary btn-sm' %><td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
