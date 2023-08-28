@@ -49,6 +49,8 @@ gem 'bootsnap', require: false
 
 gem "bootstrap"
 gem "sassc-rails"
+
+gem "shoulda-matchers"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
