@@ -1,0 +1,26 @@
+<hr>
+<table class="table"> 
+  <thead>
+    <tr class="text-center">
+      <th scope="col">No</th>
+      <th scope="col">Username</th>
+      <th scope="col">Full name</th>
+      <th scope="col">Email</th>
+      <th scope="col", colspan="5">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @customers.each_with_index do |customer, index| %>
+    <tr class="text-center">
+      <th scope="row"><%= index + 1 %></th>
+      <td><%= customer.username %></td>
+      <td><%= customer.full_name %></td>
+      <td><%= customer.email %></td>
+      <td colspan="1"><%= link_to "Show", customer, class: 'btn btn-secondary btn-sm' %><td>
+      <td colspan="1"><%= link_to "Edit", edit_customer_path(customer), class: 'btn btn-primary btn-sm' %><td>
+      <td colspan="1"><%= button_to "Delete", customer, method: :delete, class: 'btn btn-danger btn-sm' %><td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
