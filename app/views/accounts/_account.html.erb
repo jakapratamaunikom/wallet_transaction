@@ -1,0 +1,25 @@
+<hr>
+<table class="table"> 
+  <thead>
+    <tr class="text-center">
+      <th scope="col">No</th>
+      <th scope="col">Customer</th>
+      <th scope="col">Number</th>
+      <th scope="col">Balance</th>
+      <th scope="col", colspan="5">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @accounts.each_with_index do |account, index| %>
+    <tr class="text-center">
+      <th scope="row"><%= index + 1 %></th>
+      <td><%= account.customer.full_name %></td>
+      <td><%= account.number %></td>
+      <td><%= account.balance %></td>
+      <td colspan="1"><%= link_to "Show", account, class: 'btn btn-secondary btn-sm' %><td>
+      <td colspan="1"><%= link_to "Edit", edit_account_path(account), class: 'btn btn-primary btn-sm' %><td>
+      <td colspan="1"><%= button_to "Delete", account, method: :delete, class: 'btn btn-danger btn-sm' %><td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
